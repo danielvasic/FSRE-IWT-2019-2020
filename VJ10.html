@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS vježba</title>
+    <style>
+        #tekst {
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+
+<body onclick="promjeniBojuPozadine('blue')" onmouseover="promjeniBojuPozadine('blue')"
+    onmouseout="promjeniBojuPozadine('white')">
+    <button id="prikaziTekst">Prikazi tekst</button>
+    <div id="tekst">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+    </div>
+
+    <script>
+        /*
+        function prikaziTekst() {
+            var tekstDiv = document.getElementById("tekst");
+            var tekstBtn = document.getElementById("prikaziTekst");
+            console.log(tekstDiv.style.display);
+            if (tekstDiv.style.display == "none" || tekstDiv.style.display == "") {
+                tekstDiv.style.display = "block";
+                tekstBtn.innerHTML = "Skrij tekst"
+            } else {
+                tekstDiv.style.display = "none";
+                tekstBtn.innerHTML = "Prikaži tekst"
+            }
+        }
+        */
+
+        function zbroji(a, b) {
+            return a + b;
+        }
+
+        function promjeniBojuPozadine(boja) {
+            document.body.style.backgroundColor = boja;
+        }
+
+        var noviTekst = document.createTextNode("Ovo je neki string....")
+        var p = document.createElement("P");
+        p.appendChild(noviTekst)
+        document.body.appendChild(p);
+
+        $("#prikaziTekst").on("click", function () {
+            $("#tekst").toggle();
+            if ($("#tekst").is(":visible")) {
+                $(this).html("Skrij tekst");
+            } else {
+                $(this).html("Prikazi tekst");
+            }
+        });
+
+        console.log(document.body)
+        // document.body.innerHTML = zbroji(2, 3);
+    </script>
+</body>
+
+</html>

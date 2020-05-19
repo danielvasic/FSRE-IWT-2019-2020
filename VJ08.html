@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ovo je neki naslov</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .poveznica {
+            width: 100px;
+            padding: 10px;
+            background-color: dodgerblue;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border: 2px solid dodgerblue;
+            border-radius: 100px;
+        }
+
+        .poveznica:hover {
+            color: dodgerblue;
+            background-color: white;
+        }
+
+        @keyframes animacija {
+            0% {
+                background-color: red;
+                left: 100px;
+                top: 0px;
+            }
+
+            50% {
+                background-color: yellow;
+                top: 100px;
+                left: 100px;
+            }
+
+            100% {
+                background-color: dodgerblue;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                background-color: gray !important;
+            }
+
+            .poveznica {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width:800px) {
+            body {
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" class="poveznica">Ovo je link</a>
+    <p>Ovo je prvi</p>
+    <p>Ovo je drugi</p>
+    <p>Ovo je treci</p>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+p {
+    font-size: 20px;
+}
+
+div {
+    background-color: aqua;
+    width: 150px;
+}
+
+* {
+    font-family: Arial;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+#plava {
+    color: blue;
+}
+
+#crvena {
+    color: red;
+}
+
+#zelena {
+    color: green;
+}
+
+.bijela {
+    background-color: white;
+}
