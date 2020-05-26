@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ajax zahtjevi</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        function getQuote() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var quotes = JSON.parse(this.responseText);
+                    var quotesDiv = document.getElementById("quotes");
+                    for (var key in quotes) {
+                        var noviTekst = document.createTextNode(quotes[key].quoteText + " " + quotes[key].quoteAuthor)
+                        var p = document.createElement("p");
+                        p.appendChild(noviTekst)
+                        quotesDiv.appendChild(p)
+                    }
+                    console.log(quotes);
+                }
+            }
+            xhr.open("GET", "data/quote.json");
+            xhr.send();
+        }
+
+        $(document).ready(function () {
+            $("#popuniTablicu").click(function () {
+                $.getJSON("data/data.json", function (json) {
+                    console.log(json);
+                    var table = $("<table>");
+                    var tr = $("<tr></tr>");
+                    tr.append($("<th></th>").html("ID"))
+                    tr.append($("<th></th>").html("Ime"))
+                    tr.append($("<th></th>").html("Prezime"))
+                    tr.append($("<th></th>").html("Email"))
+                    table.append(tr);
+
+                    for (var key in json) {
+                        var tr = $("<tr></tr>");
+                        tr.append($("<td></td>").html(json[key].id))
+                        tr.append($("<td></td>").html(json[key].first_name))
+                        tr.append($("<td></td>").html(json[key].last_name))
+                        tr.append($("<td></td>").html(json[key].email))
+                        table.append(tr);
+                    }
+
+                    $("body").append(table);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button onclick="getQuote()">Daj citat</button>
+    <div id="quotes">
+
+    </div>
+
+    <button id="popuniTablicu">Popuni tablicu</button>
+</body>
+
+</html>
